@@ -1,10 +1,14 @@
-        var IDE_HOOK = false;
-        var VERSION = '2.4.4';
-
-        
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(600, 800, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
+
+	game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    
+    //have the game centered horizontally
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+
+    game.stage.backgroundColor = '#414040';
 
     game.load.audio('explosion', 'assets/audio/SoundEffects/explosion.mp3');
     game.load.audio('sword', 'assets/audio/SoundEffects/sword.mp3');
@@ -24,7 +28,7 @@ var text3;
 
 function create() {
 
-    game.stage.backgroundColor = '#414040';
+
 
     var style = { font: "65px Arial", fill: "#52bace", align: "center" };
     text = game.add.text(game.world.centerX, 100, "decoding", style);
