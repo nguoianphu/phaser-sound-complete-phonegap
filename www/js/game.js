@@ -1,5 +1,6 @@
 var game = new Phaser.Game(600, 800, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
+/*
         function getPath() {
             var str = location.pathname;
             var i = str.lastIndexOf('/');
@@ -13,6 +14,7 @@ var game = new Phaser.Game(600, 800, Phaser.AUTO, 'phaser-example', { preload: p
             //media.play({numberOfLoops:"infinite"});
             media.play();
         }
+*/
 
 function preload() {
 
@@ -24,11 +26,11 @@ function preload() {
 
     game.stage.backgroundColor = '#414040';
 
-/*
+
     game.load.audio('explosion', 'assets/audio/SoundEffects/explosion.mp3');
     game.load.audio('sword', 'assets/audio/SoundEffects/sword.mp3');
     game.load.audio('blaster', 'assets/audio/SoundEffects/blaster.mp3');
-*/
+
 /*
 var explosion = new Media('/android_asset/www/assets/audio/SoundEffects/explosion.mp3');
 var sword= new Media('/android_asset/www/assets/audio/SoundEffects/sword.mp3');
@@ -54,7 +56,7 @@ function create() {
     text = game.add.text(game.world.centerX, 100, "decoding", style);
     text.anchor.set(0.5);
 
-/*
+
     explosion = game.add.audio('explosion');
     sword = game.add.audio('sword');
     blaster = game.add.audio('blaster');
@@ -64,7 +66,7 @@ function create() {
     //  The audio files could decode in ANY order, we can never be sure which it'll be.
 
     game.sound.setDecodedCallback([ explosion, sword, blaster ], start, this);
-*/
+
 }
 
 var keys;
@@ -83,7 +85,7 @@ function start() {
 
     text3 = game.add.text(game.world.centerX, 450, "Sword: Stopped", style);
     text3.anchor.set(0.5);
-/*
+
     explosion.onStop.add(soundStopped, this);
     sword.onStop.add(soundStopped, this);
     blaster.onStop.add(soundStopped, this);
@@ -93,7 +95,7 @@ function start() {
     keys.blaster.onDown.add(playFx, this);
     keys.explosion.onDown.add(playFx, this);
     keys.sword.onDown.add(playFx, this);
-*/
+
     //  And for touch devices you can also press the top, middle or bottom of the screen
     game.input.onDown.add(onTouch, this);
 
@@ -105,23 +107,23 @@ function onTouch(pointer) {
 
     if (pointer.y < b)
     {
-        //playFx(keys.blaster);
-        playAudio('assets/audio/SoundEffects/blaster.mp3');
+        playFx(keys.blaster);
+    //    playAudio('assets/audio/SoundEffects/blaster.mp3');
     }
     else if (pointer.y > b * 2)
     {
-        //playFx(keys.sword);
-        playAudio('assets/audio/SoundEffects/sword.mp3');
+        playFx(keys.sword);
+       // playAudio('assets/audio/SoundEffects/sword.mp3');
     }
     else
     {
-       // playFx(keys.explosion);
-       playAudio('assets/audio/SoundEffects/explosion.mp3');
+        playFx(keys.explosion);
+     //  playAudio('assets/audio/SoundEffects/explosion.mp3');
     }
 
 }
 
-/*
+
 
 function playFx(key) {
 
@@ -161,4 +163,4 @@ function soundStopped(sound) {
     }
 
 }
-*/
+
