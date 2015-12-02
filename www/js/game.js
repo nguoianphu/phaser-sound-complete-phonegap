@@ -61,7 +61,8 @@ function create() {
     //  Using setDecodedCallback we can be notified when they're ALL ready for use.
     //  The audio files could decode in ANY order, we can never be sure which it'll be.
 
-    game.sound.setDecodedCallback([ explosion, fanfare ], start, this);
+    // game.sound.setDecodedCallback([ explosion, fanfare ], start, this);
+	start();
 
 }
 
