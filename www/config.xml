@@ -18,10 +18,13 @@
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <!-- <preference name="phonegap-version"       value="cli-6.0.0" /> -->
     
+    <!-- Plugins -->
+    <!-- Core plugins -->
+    <plugin name="cordova-plugin-media"      source="npm" spec="~1.2.4" />
+    
     <!-- Define the main entry-point to the application -->
     <content src="index.html" />    
-    
-	<gap:plugin name="org.apache.cordova.media" />
+
 	<icon src="icon.png" />
 	<preference name="splash-screen-duration" value="1"/>
 	
